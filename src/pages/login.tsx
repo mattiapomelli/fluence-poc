@@ -4,15 +4,14 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@components/basic/button";
 import { Input } from "@components/basic/input";
-
-import type { NextPage } from "next";
+import { ExtendedPage, PageAuth } from "@types";
 
 interface LoginFields {
   username: string;
   password: string;
 }
 
-const LoginPage: NextPage = () => {
+const LoginPage: ExtendedPage = () => {
   const {
     register,
     handleSubmit,
@@ -54,3 +53,5 @@ const LoginPage: NextPage = () => {
 };
 
 export default LoginPage;
+
+LoginPage.auth = PageAuth.UnPrivate;

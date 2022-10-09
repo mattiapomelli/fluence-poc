@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@components/basic/button";
 import { Input } from "@components/basic/input";
-
-import type { NextPage } from "next";
+import { ExtendedPage, PageAuth } from "@types";
 
 interface SignupFields {
   email: string;
@@ -14,7 +13,7 @@ interface SignupFields {
   confirmPassword: string;
 }
 
-const SignupPage: NextPage = () => {
+const SignupPage: ExtendedPage = () => {
   const {
     register,
     handleSubmit,
@@ -73,3 +72,5 @@ const SignupPage: NextPage = () => {
 };
 
 export default SignupPage;
+
+SignupPage.auth = PageAuth.UnPrivate;
