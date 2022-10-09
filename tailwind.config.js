@@ -6,7 +6,11 @@ module.exports = {
     "./src/layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "base-content-neutral": "hsl(var(--bc) / 0.6)",
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
   daisyui: {
