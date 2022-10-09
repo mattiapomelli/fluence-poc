@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 
 import { DefaultLayout } from "@layouts/default-layout";
 import { ExtendedPage } from "@types";
+import { AuthProvider } from "contexts/auth-provider";
 
 import SEO from "../../next-seo.config";
 
@@ -20,8 +21,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <DefaultSeo {...SEO} />
-        {getLayout(<Component {...pageProps} />)}
+        <AuthProvider>
+          <DefaultSeo {...SEO} />
+          {getLayout(<Component {...pageProps} />)}
+        </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
