@@ -60,13 +60,13 @@ const SignupPage: NextPage = () => {
           })}
           error={errors.confirmPassword?.message}
         />
-        <p className="text-sm">
+        <Button className="mt-2">Sign up</Button>
+        <p className="text-center text-sm">
           Don&apos;t have an account?{" "}
           <Link href="/login">
             <a className="text-primary hover:underline">Login</a>
           </Link>
         </p>
-        <Button className="mt-4">Signup</Button>
       </form>
     </div>
   );

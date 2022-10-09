@@ -41,13 +41,13 @@ const LoginPage: NextPage = () => {
           {...register("password", { required: "Password is required" })}
           error={errors.password?.message}
         />
-        <p className="text-sm">
+        <Button className="mt-2">Log in</Button>
+        <p className="text-center text-sm">
           Already have an account?{" "}
           <Link href="/signup">
             <a className="text-primary hover:underline">Signup</a>
           </Link>
         </p>
-        <Button className="mt-4">Login</Button>
       </form>
     </div>
   );
