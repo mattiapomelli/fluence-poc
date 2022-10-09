@@ -7,18 +7,21 @@ import { Input } from "@components/basic/input";
 
 import type { NextPage } from "next";
 
-interface LoginFields {
+interface SignupFields {
+  email: string;
   username: string;
   password: string;
+  confirmPassword: string;
 }
 
-const LoginPage: NextPage = () => {
+const SignupPage: NextPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
     reset,
-  } = useForm<LoginFields>();
+  } = useForm<SignupFields>();
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -27,8 +30,14 @@ const LoginPage: NextPage = () => {
 
   return (
     <div className="mx-auto mt-12 max-w-xs">
-      <h1 className="mb-4 text-center text-2xl font-bold">Login</h1>
+      <h1 className="mb-4 text-center text-2xl font-bold">Signup</h1>
       <form className="flex w-full flex-col gap-3" onSubmit={onSubmit}>
+        <Input
+          label="Email"
+          type="email"
+          {...register("email", { required: "Email is required" })}
+          error={errors.email?.message}
+        />
         <Input
           label="Username"
           type="text"
@@ -41,16 +50,26 @@ const LoginPage: NextPage = () => {
           {...register("password", { required: "Password is required" })}
           error={errors.password?.message}
         />
+        <Input
+          label="Confirm Password"
+          type="password"
+          {...register("confirmPassword", {
+            required: "Password is required",
+            validate: (value) =>
+              value === getValues("password") || "Passwords do not match",
+          })}
+          error={errors.confirmPassword?.message}
+        />
         <p className="text-sm">
-          Already have an account?{" "}
-          <Link href="/signup">
-            <a className="text-primary hover:underline">Signup</a>
+          Don&apos;t have an account?{" "}
+          <Link href="/login">
+            <a className="text-primary hover:underline">Login</a>
           </Link>
         </p>
-        <Button className="mt-4">Login</Button>
+        <Button className="mt-4">Signup</Button>
       </form>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignupPage;
