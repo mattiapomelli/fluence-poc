@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@components/basic/button";
 import { Logo } from "@components/basic/logo";
 import { ThemeToggle } from "@components/basic/theme-toggle";
@@ -11,7 +13,11 @@ export const Navbar = () => {
         <Logo />
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button>Get started</Button>
+          <Link href="/signup">
+            <a>
+              <Button>Get started</Button>
+            </a>
+          </Link>
         </div>
       </Container>
     </header>
