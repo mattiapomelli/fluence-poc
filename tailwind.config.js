@@ -9,4 +9,15 @@ module.exports = {
     extend: {},
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          "--btn-text-case": "none",
+          "--rounded-btn": "0.75rem",
+        },
+      },
+    ],
+  },
 };
