@@ -25,7 +25,7 @@ const UserContext = createContext<UserContextValue | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleUnauthorizedError = async () => {
     setUser(null);
