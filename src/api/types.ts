@@ -21,9 +21,7 @@ export interface ApiErrorResponse {
 export type QueryParams = Record<string, string | number | boolean | undefined>;
 
 export interface Entity {
-  _id: string;
+  id: string;
   createdAt: string;
   updatedAt: string;
 }
-
-export type Id = Entity["_id"];
