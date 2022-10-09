@@ -21,7 +21,7 @@ export class ApiClient {
     this.options = options;
 
     this.http = new Http({
-      baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
       handleResponseError: this.handleResponseError.bind(this),
       headers: {},
     });
