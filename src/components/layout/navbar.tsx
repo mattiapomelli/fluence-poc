@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 
+import { Avatar } from "@components/basic/avatar";
 import { Button } from "@components/basic/button";
 import { Logo } from "@components/basic/logo";
 import { ThemeToggle } from "@components/basic/theme-toggle";
@@ -30,7 +31,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             {user ? (
-              <span className="font-semibold">{user.username}</span>
+              <Avatar user={user} />
             ) : (
               <Link href="/signup">
                 <a>
