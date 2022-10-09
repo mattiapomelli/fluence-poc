@@ -5,8 +5,8 @@ import { Avatar } from "@components/basic/avatar";
 import { Button } from "@components/basic/button";
 import { Logo } from "@components/basic/logo";
 import { ThemeToggle } from "@components/basic/theme-toggle";
+import { useUser } from "@contexts/auth-provider";
 import { useTransitionControl } from "@hooks/use-transition-control";
-import { useUser } from "contexts/auth-provider";
 
 import { Container } from "./container";
 

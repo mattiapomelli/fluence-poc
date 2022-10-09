@@ -19,7 +19,7 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@hooks/*": ["hooks/*"],
-      "@providers/*": ["providers/*"],
+      "@contexts/*": ["contexts/*"],
       "@utils/*": ["utils/*"],
       "@icons/*": ["icons/*"],
       "@api/*": ["api/*"],
