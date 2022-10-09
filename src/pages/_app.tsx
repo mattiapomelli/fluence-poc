@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 
+import { AuthGuard } from "@components/auth-guard";
 import { DefaultLayout } from "@layouts/default-layout";
 import { ExtendedPage } from "@types";
 import { AuthProvider } from "contexts/auth-provider";
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <AuthProvider>
           <DefaultSeo {...SEO} />
-          {getLayout(<Component {...pageProps} />)}
+          <AuthGuard auth={(Component as ExtendedPage).auth}>
+            {getLayout(<Component {...pageProps} />)}
+          </AuthGuard>
         </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
