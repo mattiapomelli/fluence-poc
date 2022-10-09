@@ -22,6 +22,13 @@ module.exports = {
           "--rounded-btn": "0.75rem",
         },
       },
+      {
+        dark: {
+          ...require("daisyui/src/colors/themes")["[data-theme=dark]"],
+          "--btn-text-case": "none",
+          "--rounded-btn": "0.75rem",
+        },
+      },
     ],
   },
 };

@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { DefaultSeo } from "next-seo";
+import { ThemeProvider } from "next-themes";
 
 import { DefaultLayout } from "@layouts/default-layout";
 import { ExtendedPage } from "@types";
@@ -14,10 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     ((page) => <DefaultLayout>{page}</DefaultLayout>);
 
   return (
-    <>
+    <ThemeProvider>
       <DefaultSeo {...SEO} />
       {getLayout(<Component {...pageProps} />)}
-    </>
+    </ThemeProvider>
   );
 }
 
