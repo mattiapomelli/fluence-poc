@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended", "plugin:storybook/recommended"],
-  "plugins": ["import", "simple-import-sort", "@typescript-eslint"],
+  "plugins": ["import", "simple-import-sort", "@typescript-eslint", "unicorn"],
   "rules": {
     "import/prefer-default-export": "off",
     "import/extensions": [
@@ -25,7 +25,13 @@
       }
     ],
     "simple-import-sort/exports": "error",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
+      }
+    ]
   },
   "overrides": [
     {
