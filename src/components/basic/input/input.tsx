@@ -6,7 +6,7 @@ const iconClass =
 
 const variantClassName = {
   solid: "bg-base-300",
-  bordered: "border-2 border-base-300 bg-transparent",
+  bordered: "bg-transparent",
   ghost: "input-ghost disabled:bg-transparent",
 };
 
@@ -110,7 +110,7 @@ export const Input = forwardRef(
           placeholder={placeholder}
           className={cx(
             "input",
-            "focus:border-inherit",
+            "border-2",
             "text-base-content",
             "placeholder:text-base-content-neutral",
             "focus:outline-none focus:ring-4",
@@ -119,8 +119,9 @@ export const Input = forwardRef(
             sizeClassName[size],
             { "pl-11": leftIcon },
             { "pr-11": rightIcon },
-            { "border-2 border-error focus:ring-error": error },
-            error ? "focus:ring-error/30" : "focus:ring-primary/30",
+            error
+              ? "border-error focus:border-error focus:ring-error/30"
+              : "border-base-300 focus:border-base-300 focus:ring-primary/30",
           )}
         />
         {rightIcon && (
