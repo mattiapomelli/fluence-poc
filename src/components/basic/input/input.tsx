@@ -5,8 +5,8 @@ const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
 const variantClassName = {
-  solid: "border-base-300 bg-base-300",
-  bordered: "border-base-300 bg-transparent",
+  solid: "bg-base-300",
+  bordered: "border-2 border-base-300 bg-transparent",
   ghost: "input-ghost disabled:bg-transparent",
 };
 
@@ -78,11 +78,7 @@ export const Input = forwardRef(
 
     return (
       <div
-        className={cx(
-          "form-control relative",
-          { "inline-flex flex-col": !block },
-          className,
-        )}
+        className={cx("form-control relative", { "w-full": block }, className)}
       >
         {(label || topRightLabel) && (
           <label className="label cursor-pointer py-1.5" htmlFor={id}>
@@ -114,7 +110,7 @@ export const Input = forwardRef(
           placeholder={placeholder}
           className={cx(
             "input",
-            "border-2",
+            "focus:border-inherit",
             "text-base-content",
             "placeholder:text-base-content-neutral",
             "focus:outline-none focus:ring-4",
