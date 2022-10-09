@@ -81,7 +81,7 @@ export const Input = forwardRef(
         className={cx("form-control relative", { "w-full": block }, className)}
       >
         {(label || topRightLabel) && (
-          <label className="label cursor-pointer py-1.5" htmlFor={id}>
+          <label className="label mb-1 cursor-pointer py-0" htmlFor={id}>
             {label && <span className="label-text font-medium">{label}</span>}
             {topRightLabel && (
               <span className="label-text font-medium text-base-content">
@@ -135,7 +135,7 @@ export const Input = forwardRef(
           </span>
         )}
         {(bottomLeftLabel || bottomRightLabel) && (
-          <label className="label py-1.5">
+          <label className="label mt-1 py-0">
             {bottomLeftLabel && (
               <span className="label-text font-medium text-base-content">
                 {bottomLeftLabel}
@@ -149,7 +149,7 @@ export const Input = forwardRef(
           </label>
         )}
         {error && (
-          <label className="label py-1.5">
+          <label className="label mt-1 py-0">
             <span className="label-text text-error">{error}</span>
           </label>
         )}
