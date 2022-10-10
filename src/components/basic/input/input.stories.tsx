@@ -31,27 +31,27 @@ Ghost.args = {
   variant: "ghost",
 };
 
-export const Xs = Template.bind({});
+export const Tiny = Template.bind({});
 
-Xs.args = {
+Tiny.args = {
   size: "xs",
 };
 
-export const Sm = Template.bind({});
+export const Small = Template.bind({});
 
-Sm.args = {
+Small.args = {
   size: "sm",
 };
 
-export const Md = Template.bind({});
+export const Normal = Template.bind({});
 
-Md.args = {
+Normal.args = {
   size: "md",
 };
 
-export const Lg = Template.bind({});
+export const Large = Template.bind({});
 
-Lg.args = {
+Large.args = {
   size: "lg",
 };
 
