@@ -24,9 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <AuthProvider>
           <DefaultSeo {...SEO} />
-          <AuthGuard auth={(Component as ExtendedPage).auth}>
-            {getLayout(<Component {...pageProps} />)}
-          </AuthGuard>
+          {getLayout(
+            <AuthGuard auth={(Component as ExtendedPage).auth}>
+              <Component {...pageProps} />
+            </AuthGuard>,
+          )}
         </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
