@@ -1,5 +1,11 @@
 import "styles/globals.css";
 
+export const globalTypes = {
+  themes: {
+    defaultValue: ["light", "dark"],
+  },
+};
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

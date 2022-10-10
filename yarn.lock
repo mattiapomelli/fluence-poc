@@ -10469,6 +10469,11 @@ storybook-addon-next@^1.6.9:
     tsconfig-paths "^4.0.0"
     tsconfig-paths-webpack-plugin "^4.0.0"
 
+storybook-addon-theme-changer@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/storybook-addon-theme-changer/-/storybook-addon-theme-changer-0.1.2.tgz#18f2f402544e2737ac960a4ac96889d61fbc1c06"
+  integrity sha512-moN3hHg91W7Y4Gux8IsPuA0NUvqEliV3RBXCJ9Au6T7Gc5ME4fDy89eZVVSRs+1DTemQG1pYCikXtAR2p4dFfA==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
