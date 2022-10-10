@@ -1,5 +1,6 @@
 import cx from "classnames";
 import { ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from "react";
+import { overrideTailwindClasses } from "tailwind-override";
 
 const colorClassname = {
   primary: "btn-primary",
@@ -85,27 +86,29 @@ export const Button = forwardRef(
         {...props}
         ref={ref}
         disabled={disabled}
-        className={cx(
-          "btn min-h-0 animate-none",
-          // Solid and outline variants can affect background, text and border color
-          {
-            [colorClassname[color]]:
-              variant === "solid" || variant === "outline",
-          },
-          // Ghost and link variants only affect text color
-          {
-            [textColorClassname[color]]:
-              (variant === "ghost" || variant === "link") && !disabled,
-          },
-          variantClassname[variant],
-          ringClassname[color],
-          sizeClassname[size],
-          { "w-full": block },
-          "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",
-          { "loading cursor-not-allowed pointer-events-auto": loading },
-          { "gap-2": leftIcon || rightIcon },
-          "focus:outline-none focus-visible:ring-4 focus:ring-opacity-30",
-          className,
+        className={overrideTailwindClasses(
+          cx(
+            "btn min-h-0 animate-none",
+            // Solid and outline variants can affect background, text and border color
+            {
+              [colorClassname[color]]:
+                variant === "solid" || variant === "outline",
+            },
+            // Ghost and link variants only affect text color
+            {
+              [textColorClassname[color]]:
+                (variant === "ghost" || variant === "link") && !disabled,
+            },
+            variantClassname[variant],
+            ringClassname[color],
+            sizeClassname[size],
+            { "w-full": block },
+            "disabled:cursor-not-allowed disabled:pointer-events-auto disabled:active:transform-none",
+            { "loading cursor-not-allowed pointer-events-auto": loading },
+            { "gap-2": leftIcon || rightIcon },
+            "focus:outline-none focus-visible:ring-4 focus:ring-opacity-30",
+            className,
+          ),
         )}
       >
         {leftIcon}

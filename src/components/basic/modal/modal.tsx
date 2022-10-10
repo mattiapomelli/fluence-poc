@@ -1,6 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import cx from "classnames";
 import { ReactNode } from "react";
+import { overrideTailwindClasses } from "tailwind-override";
 
 import CrossIcon from "@icons/cross.svg";
 
@@ -31,15 +32,17 @@ export const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-20 flex items-center justify-center bg-black/50">
           <Dialog.Content
-            className={cx(
-              "w-[94%] max-w-md",
-              "bg-base-100",
-              "rounded-btn",
-              "py-4 px-5",
-              "relative",
-              "max-h-[90vh]",
-              "focus:outline-none",
-              className,
+            className={overrideTailwindClasses(
+              cx(
+                "w-[94%] max-w-md",
+                "bg-base-100",
+                "rounded-btn",
+                "py-4 px-5",
+                "relative",
+                "max-h-[90vh]",
+                "focus:outline-none",
+                className,
+              ),
             )}
           >
             <Dialog.Close
