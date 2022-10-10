@@ -1,6 +1,8 @@
 import cx from "classnames";
 import { forwardRef, InputHTMLAttributes, ReactNode, Ref, useId } from "react";
 
+import { Label } from "../label";
+
 const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
@@ -114,14 +116,10 @@ export const Input = forwardRef(
       >
         {/* Labels */}
         {(label || topRightLabel) && (
-          <label className="label mb-1 cursor-pointer py-0" htmlFor={id}>
-            {label && <span className="label-text font-medium">{label}</span>}
-            {topRightLabel && (
-              <span className="label-text font-medium text-base-content">
-                {topRightLabel}
-              </span>
-            )}
-          </label>
+          <div className="label py-0">
+            {label && <Label htmlFor={id}>{label}</Label>}
+            {topRightLabel && <Label>{topRightLabel}</Label>}
+          </div>
         )}
         {/* Left Icon */}
         {leftIcon && (
@@ -174,18 +172,14 @@ export const Input = forwardRef(
         )}
         {/* Bottom labels */}
         {(bottomLeftLabel || bottomRightLabel) && (
-          <label className="label mt-1 py-0">
+          <div className="label mt-1 py-0">
             {bottomLeftLabel && (
-              <span className="label-text font-medium text-base-content">
-                {bottomLeftLabel}
-              </span>
+              <Label className="mb-0">{bottomLeftLabel}</Label>
             )}
             {bottomRightLabel && (
-              <span className="label-text font-medium text-base-content">
-                {bottomRightLabel}
-              </span>
+              <Label className="mb-0">{bottomRightLabel}</Label>
             )}
-          </label>
+          </div>
         )}
         {/* Error Message */}
         {error && (
