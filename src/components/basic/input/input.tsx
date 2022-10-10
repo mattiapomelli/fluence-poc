@@ -4,30 +4,58 @@ import { forwardRef, InputHTMLAttributes, ReactNode, Ref, useId } from "react";
 const iconClass =
   "absolute top-1/2 transform -translate-y-1/2 [&>svg]:max-w-min";
 
-const variantClassName = {
-  solid: "bg-base-300",
-  bordered: "bg-transparent",
-  ghost: "input-ghost disabled:bg-transparent",
+const variantClassname = {
+  solid: "bg-base-300 border-base-300",
+  bordered: "bg-transparent border-base-300",
+  ghost: "border-transparent disabled:bg-transparent",
 };
 
-const sizeClassName = {
-  xs: "input-xs min-w-[4.55rem] h-7 px-2.5",
-  sm: "input-sm min-w-[5.2rem] h-8 px-3",
-  md: "min-w-[6.5rem] h-10 px-4",
-  lg: "input-lg min-w-[7.8rem] h-12 px-5",
+const sizeClassname = {
+  xs: "input-xs h-7 px-2.5",
+  sm: "input-sm h-8 px-3",
+  md: "h-10 px-4",
+  lg: "input-lg h-12 px-5",
 };
 
-const iconSizeClassName = {
-  xs: "[&>svg]:max-h-4",
+const iconSizeClassname = {
+  xs: "[&>svg]:max-h-3.5",
   sm: "[&>svg]:max-h-4",
-  md: "[&>svg]:max-h-6",
+  md: "[&>svg]:max-h-5",
   lg: "[&>svg]:max-h-6",
+};
+
+const leftIconPaddingClassname = {
+  xs: "pl-7",
+  sm: "pl-8",
+  md: "pl-10",
+  lg: "pl-12",
+};
+
+const rightIconPaddingClassname = {
+  xs: "pr-7",
+  sm: "pr-8",
+  md: "pr-10",
+  lg: "pr-12",
+};
+
+const leftIconPositionClassname = {
+  xs: "left-2.5",
+  sm: "left-3",
+  md: "left-3.5",
+  lg: "left-4",
+};
+
+const rightIconPositionClassname = {
+  xs: "right-2.5",
+  sm: "right-3",
+  md: "right-3.5",
+  lg: "right-4",
 };
 
 export interface BaseInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
-  variant?: keyof typeof variantClassName;
-  size?: keyof typeof sizeClassName;
+  variant?: keyof typeof variantClassname;
+  size?: keyof typeof sizeClassname;
   placeholder?: string;
   label?: string;
   topRightLabel?: string;
@@ -78,7 +106,11 @@ export const Input = forwardRef(
 
     return (
       <div
-        className={cx("form-control relative", { "w-full": block }, className)}
+        className={cx(
+          "flex-col relative",
+          block ? "flex" : "inline-flex",
+          className,
+        )}
       >
         {(label || topRightLabel) && (
           <label className="label mb-1 cursor-pointer py-0" htmlFor={id}>
@@ -94,8 +126,9 @@ export const Input = forwardRef(
           <span
             className={cx(
               iconClass,
-              iconSizeClassName[size],
-              "left-3 text-base-content-neutral",
+              iconSizeClassname[size],
+              leftIconPositionClassname[size],
+              "text-base-content-neutral",
             )}
           >
             {leftIcon}
@@ -115,21 +148,22 @@ export const Input = forwardRef(
             "placeholder:text-base-content-neutral",
             "focus:outline-none focus:ring-4",
             "w-full",
-            variantClassName[variant],
-            sizeClassName[size],
-            { "pl-11": leftIcon },
-            { "pr-11": rightIcon },
+            variantClassname[variant],
+            sizeClassname[size],
+            leftIcon && leftIconPaddingClassname[size],
+            rightIcon && rightIconPaddingClassname[size],
             error
-              ? "border-error focus:border-error focus:ring-error/30"
-              : "border-base-300 focus:border-base-300 focus:ring-primary/30",
+              ? "!border-error focus:!border-error focus:ring-error/30"
+              : "focus:ring-primary/30",
           )}
         />
         {rightIcon && (
           <span
             className={cx(
               iconClass,
-              iconSizeClassName[size],
-              "right-3 text-base-content-neutral",
+              iconSizeClassname[size],
+              rightIconPositionClassname[size],
+              "text-base-content-neutral",
             )}
           >
             {rightIcon}
