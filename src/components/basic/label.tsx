@@ -2,7 +2,7 @@ import cx from "classnames";
 import { ElementType, LabelHTMLAttributes } from "react";
 import { overrideTailwindClasses } from "tailwind-override";
 
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   className?: string;
   as?: ElementType;
 }

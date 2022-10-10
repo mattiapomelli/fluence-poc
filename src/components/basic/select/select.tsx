@@ -161,7 +161,7 @@ export const Select = ({
                       >
                         {item}
                       </span>
-                      {/* CHeck Icon */}
+                      {/* Check Icon */}
                       {selected && (
                         <span
                           className={cx(

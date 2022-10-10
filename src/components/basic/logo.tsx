@@ -1,7 +1,7 @@
 import cx from "classnames";
 import Link from "next/link";
 
-interface LogoProps {
+export interface LogoProps {
   href?: string;
   className?: string;
 }

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { User } from "@api/users";
 import { stringToColour } from "@utils/string-to-color";
 
-interface AvatarProps {
+export interface AvatarProps {
   user: User;
   className?: string;
   onlyAvatar?: boolean;

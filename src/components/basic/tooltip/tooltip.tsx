@@ -15,6 +15,7 @@ const colorClassname = {
   secondary: "bg-secondary text-secondary-content fill-secondary",
   accent: "bg-accent text-accent-content fill-accent",
 };
+
 export interface TooltipProps {
   color?: keyof typeof colorClassname;
   align?: TooltipContentProps["align"];
@@ -62,7 +63,7 @@ export const Tooltip = ({
             onMouseLeave={onClose}
             className={cx(
               "animate-fade-in rounded-btn py-2 px-3 z-30 max-w-[90vw]",
-              colorClassname[color]
+              colorClassname[color],
             )}
             {...props}
           >
