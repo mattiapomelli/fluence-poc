@@ -112,6 +112,7 @@ export const Input = forwardRef(
           className,
         )}
       >
+        {/* Labels */}
         {(label || topRightLabel) && (
           <label className="label mb-1 cursor-pointer py-0" htmlFor={id}>
             {label && <span className="label-text font-medium">{label}</span>}
@@ -122,6 +123,7 @@ export const Input = forwardRef(
             )}
           </label>
         )}
+        {/* Left Icon */}
         {leftIcon && (
           <span
             className={cx(
@@ -157,6 +159,7 @@ export const Input = forwardRef(
               : "focus:ring-primary/30",
           )}
         />
+        {/* Right Icon */}
         {rightIcon && (
           <span
             className={cx(
@@ -169,6 +172,7 @@ export const Input = forwardRef(
             {rightIcon}
           </span>
         )}
+        {/* Bottom labels */}
         {(bottomLeftLabel || bottomRightLabel) && (
           <label className="label mt-1 py-0">
             {bottomLeftLabel && (
@@ -183,6 +187,7 @@ export const Input = forwardRef(
             )}
           </label>
         )}
+        {/* Error Message */}
         {error && (
           <label className="label mt-1 py-0">
             <span className="label-text text-error">{error}</span>
