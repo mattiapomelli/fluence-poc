@@ -94,7 +94,7 @@ export const DropdownContent = ({ children, className }: CommonProps) => {
       <Menu.Items
         className={overrideTailwindClasses(
           cx(
-            "absolute -right-2 z-20 mt-4",
+            "absolute -right-2 z-20 top-full",
             "flex flex-col gap-1",
             "min-w-[220px] p-2",
             "rounded-btn",
