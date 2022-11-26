@@ -15,7 +15,7 @@ const hRange = [50, 360];
 const sRange = [40, 50];
 const lRange = [60, 70];
 
-export const stringToColour = (name: string) => {
+export const stringToColor = (name: string) => {
   const hash = getHashOfString(name);
   const h = normalizeHash(hash, hRange[0], hRange[1]);
   const s = normalizeHash(hash, sRange[0], sRange[1]);

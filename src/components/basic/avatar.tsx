@@ -1,7 +1,7 @@
 import cx from "classnames";
 
 import { User } from "@api/users";
-import { stringToColour } from "@utils/string-to-color";
+import { stringToColor } from "@utils/string-to-color";
 
 export interface AvatarProps {
   user: User;
@@ -10,7 +10,7 @@ export interface AvatarProps {
 }
 
 export const Avatar = ({ user, className }: AvatarProps) => {
-  const color = stringToColour(user.username);
+  const color = stringToColor(user.username);
 
   return (
     <div className={cx("flex items-center gap-2 text-left", className)}>
