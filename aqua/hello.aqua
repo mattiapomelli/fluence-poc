@@ -1,0 +1,10 @@
+import "@fluencelabs/aqua-lib/builtin.aqua"
+
+-- The service runs inside browser
+service Message("Message"):
+    onMessage(message: string) -> string
+
+func sendMessage(targetPeerId: PeerId, targetRelayPeerId: PeerId, message: string) -> string:
+    on targetPeerId via targetRelayPeerId:
+        msg <- Message.onMessage(message)
+    <- msg
